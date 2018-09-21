@@ -4,9 +4,12 @@ if (process.argv[2] == null) {
  console.error('Please specify socket.io server address in valid URL. E.g. http://host:port');
  process.exit(1)
 }
-const socket = io(process.argv[2])
 
-console.log('[' +  process.argv[3] + ']')
+// -----------------------------------------------------------------
+// We pass the address of socket.io server to the constructor of 
+// the instance of "io", make sure "http://" must present in the URL
+// -----------------------------------------------------------------
+const socket = io(process.argv[2])
 
 if (process.argv[3] != null && isNaN(Number(process.argv[3]))) {
  console.error('Interval allow interger only')
